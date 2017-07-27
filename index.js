@@ -45,7 +45,7 @@ module.exports = function({ types: t }) {
           refPath.replaceWith(t.callExpression(refPath.node, []));
         }
 
-        const cachedModuleId = path.scope.generateUidIdentifier("get" + importName);
+        const cachedModuleId = path.scope.generateUidIdentifier("cached" + importName);
         path.scope.push(t.variableDeclarator(cachedModuleId, t.nullLiteral()));
         path.replaceWith(t.functionExpression(
           // id
